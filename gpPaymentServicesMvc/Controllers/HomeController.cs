@@ -15,11 +15,17 @@ namespace gpPaymentServicesMvc.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult Paypal()
         {
             ViewBag.Message = "Your app description page.";
 
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult PaypalSubmit(string invoiceReference, decimal amount)
+        {
+            return Redirect("/");
         }
 
         public ActionResult Contact()

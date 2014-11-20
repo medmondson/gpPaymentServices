@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "About";
+    ViewBag.Title = "Paypal";
 }
 
 <hgroup class="title">
@@ -8,17 +8,16 @@
 </hgroup>
 
 <article>
-    <p>
-        Use this area to provide additional information.
-    </p>
-
-    <p>
-        Use this area to provide additional information.
-    </p>
-
-    <p>
-        Use this area to provide additional information.
-    </p>
+  
+    
+    @using (Html.BeginForm("Search", "Events"))
+{
+    <p>Invoice reference:</p>
+    @Html.TextBox("invoiceReference")
+    <p>Amount:</p>
+    @Html.TextBox("amount")
+    <input type="submit" value="Pay" />
+}
 </article>
 
 <aside>
