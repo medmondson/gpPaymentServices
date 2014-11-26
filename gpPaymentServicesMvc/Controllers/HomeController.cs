@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using gpPaymentServicesMvc.Models;
 
 namespace gpPaymentServicesMvc.Controllers
 {
@@ -10,11 +11,14 @@ namespace gpPaymentServicesMvc.Controllers
     {
         public ActionResult Index()
         {
+            var properties = PayPal.Manager.ConfigManager.Instance.GetProperties();
+
             ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
 
             return View();
         }
 
+        [HttpGet]
         public ActionResult Paypal()
         {
             ViewBag.Message = "Your app description page.";
@@ -23,8 +27,9 @@ namespace gpPaymentServicesMvc.Controllers
         }
 
         [HttpPost]
-        public ActionResult PaypalSubmit(string invoiceReference, decimal amount)
+        public ActionResult Paypal(string invoiceReference, decimal amount)
         {
+            var properties = PayPal.Manager.ConfigManager.Instance.GetProperties();
             return Redirect("/");
         }
 

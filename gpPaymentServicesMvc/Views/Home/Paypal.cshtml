@@ -1,4 +1,6 @@
-﻿@{
+﻿@model gpPaymentServicesMvc.Models.PaypalModel
+
+@{
     ViewBag.Title = "Paypal";
 }
 
@@ -7,18 +9,20 @@
     <h2>@ViewBag.Message</h2>
 </hgroup>
 
-<article>
+
   
     
-    @using (Html.BeginForm("Search", "Events"))
+    @using (Html.BeginForm("Paypal", "Home"))
 {
-    <p>Invoice reference:</p>
-    @Html.TextBox("invoiceReference")
-    <p>Amount:</p>
-    @Html.TextBox("amount")
-    <input type="submit" value="Pay" />
+    <fieldset>
+        <p>@Html.LabelFor(m => m.InvoiceReference)</p>
+        @Html.TextBoxFor(m => m.InvoiceReference)
+        <p>Amount:</p>
+        @Html.TextBox("amount")
+        <input type="submit" value="Pay" />
+    </fieldset>
 }
-</article>
+
 
 <aside>
     <h3>Aside Title</h3>
