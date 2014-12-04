@@ -16,5 +16,7 @@ namespace gpPaymentServicesMvc.Models
         [Display(Name = "Amount")]
         public decimal Amount { get; set; }
 
+        public string PaymentStatus { get; set; }
+
     }
 }
