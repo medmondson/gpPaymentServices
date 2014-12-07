@@ -25,7 +25,19 @@ namespace gpPaymentServicesMvc.Controllers
         {
             ViewBag.Message = "Your app description page.";
 
-            return View();
+            //Set defaults
+            PaypalModel model = new PaypalModel
+            {
+                CreditCardNo = "4417119669820331",
+                creditType = "visa",
+                expireMonth = 11,
+                expireYear = 2018,
+                firstName = "Joe",
+                lastName = "Shopper",
+                CVV2 = 874
+            };
+
+            return View(model);
         }
 
         [HttpPost]
@@ -47,20 +59,6 @@ namespace gpPaymentServicesMvc.Controllers
             apiContext.Config = PayPal.Manager.ConfigManager.Instance.GetProperties();
 
             var version = apiContext.SdkVersion;
-
-            //// ###Items
-            //// Items within a transaction.
-            //Item item = new Item();
-            //item.name = "Energy Bill";
-            //item.currency = "GBP";
-            //item.price = "1";
-            //item.quantity = "5";
-            //item.sku = "sku";
-
-            //List<Item> itms = new List<Item>();
-            //itms.Add(item);
-            //ItemList itemList = new ItemList();
-            //itemList.items = itms;
 
             // ###Address
             // Base Address object used as shipping or billing
@@ -84,13 +82,6 @@ namespace gpPaymentServicesMvc.Controllers
             crdtCard.last_name = "Shopper";
             crdtCard.number = "4417119669820331";
             crdtCard.type = "visa";
-
-            // ###Details
-            // Let's you specify details of a payment amount.
-            //Details details = new Details();
-            //details.shipping = "1";
-            //details.subtotal = "5";
-            //details.tax = "1";
 
             // ###Amount
             // Let's you specify a payment amount.
@@ -145,20 +136,23 @@ namespace gpPaymentServicesMvc.Controllers
             pymnt.payer = payr;
             pymnt.transactions = transactions;
 
-            try
-            {
+            Payment createdPayment;
 
-                Payment createdPayment = pymnt.Create(accessToken);
-            }
-            catch(Exception e)
-            {
+            //try
+            //{
 
-            }
+                createdPayment = pymnt.Create(accessToken);
+            //}
+            //catch (Exception e)
+            //{
+
+            //}
 
             var state = createdPayment.state;
             var id = createdPayment.id;
 
             model.PaymentStatus = state;
+            model.PaymentSuccessId = id;
 
             return View(model);
         }

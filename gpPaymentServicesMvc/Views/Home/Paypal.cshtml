@@ -19,11 +19,21 @@
         @Html.TextBoxFor(m => m.InvoiceReference)
         <p>Amount:</p>
         @Html.TextBox("amount")
+        @Html.TextBoxFor(m=>m.creditType)
+        @Html.TextBoxFor(m=>m.CreditCardNo)
+        @Html.TextBoxFor(m=>m.expireMonth)
+        @Html.TextBoxFor(m=>m.expireYear)
+        @Html.TextBoxFor(m=>m.CVV2)
+        @Html.TextBoxFor(m=>m.firstName)
+        @Html.TextBoxFor(m=>m.lastName)
         <input type="submit" value="Pay" />
     </fieldset>
 }
 
 @Html.DisplayFor(x=> x.PaymentStatus)
+@Html.DisplayFor(x => x.PaymentSuccessId)
+
+
 
 <aside>
     <h3>Aside Title</h3>
