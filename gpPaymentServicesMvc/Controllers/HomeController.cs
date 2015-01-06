@@ -17,7 +17,19 @@ namespace gpPaymentServicesMvc.Controllers
 
             ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
 
-            return View();
+            //Set defaults
+            PaypalModel model = new PaypalModel
+            {
+                CreditCardNo = "4417119669820331",
+                creditType = "visa",
+                expireMonth = 11,
+                expireYear = 2018,
+                firstName = "Joe",
+                lastName = "Shopper",
+                CVV2 = 874
+            };
+
+            return View(model);
         }
 
         [HttpGet]
@@ -136,17 +148,17 @@ namespace gpPaymentServicesMvc.Controllers
             pymnt.payer = payr;
             pymnt.transactions = transactions;
 
-            Payment createdPayment;
+            Payment createdPayment = null;
 
-            //try
-            //{
+            try
+            {
 
                 createdPayment = pymnt.Create(accessToken);
-            //}
-            //catch (Exception e)
-            //{
+            }
+            catch (Exception e)
+            {
 
-            //}
+            }
 
             var state = createdPayment.state;
             var id = createdPayment.id;

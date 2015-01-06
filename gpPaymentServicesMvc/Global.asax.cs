@@ -24,5 +24,6 @@ namespace gpPaymentServicesMvc
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AuthConfig.RegisterAuth();
         }
+
     }
 }
