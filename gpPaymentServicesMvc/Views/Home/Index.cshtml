@@ -15,21 +15,34 @@
         </div>
     </section>
 }
-<h3>We suggest the following:</h3>
-
+<h3>We accept the following payment methods:</h3>
+<img src="~/Images/paymentmethods.gif" />
 @using (Html.BeginForm("Paypal", "Home"))
 {
     <fieldset>
-        <p>@Html.LabelFor(m => m.InvoiceReference)</p>
+        @Html.LabelFor(m => m.InvoiceReference)
         @Html.TextBoxFor(m => m.InvoiceReference)
-        <p>Amount:</p>
-        @Html.TextBox("amount")
-        @Html.TextBoxFor(m => m.creditType)
+
+        @Html.LabelFor(m => m.creditType)
+       @* @Html.TextBoxFor(m => m.creditType)*@
+        @Html.DropDownListFor(m => m.creditType, Model.cardTypes) @*Start here, how to populate dropdown?*@
+
+        @Html.LabelFor(m => m.CreditCardNo)
         @Html.TextBoxFor(m => m.CreditCardNo)
+
+        @Html.LabelFor(m => m.expireMonth)
         @Html.TextBoxFor(m => m.expireMonth)
+
+        @Html.LabelFor(m => m.expireYear)
         @Html.TextBoxFor(m => m.expireYear)
+
+        @Html.LabelFor(m => m.CVV2)
         @Html.TextBoxFor(m => m.CVV2)
+
+        @Html.LabelFor(m => m.firstName)
         @Html.TextBoxFor(m => m.firstName)
+
+        @Html.LabelFor(m => m.lastName)
         @Html.TextBoxFor(m => m.lastName)
         <input type="submit" value="Pay" />
     </fieldset>

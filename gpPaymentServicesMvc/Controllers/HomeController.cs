@@ -29,6 +29,8 @@ namespace gpPaymentServicesMvc.Controllers
                 CVV2 = 874
             };
 
+            ViewBag.CardTypes = new List<SelectListItem> { new SelectListItem { Value = "Visa", Text = "Visa" }, new SelectListItem { Value = "Mastercard", Text = "Mastercard" } };
+
             return View(model);
         }
 
