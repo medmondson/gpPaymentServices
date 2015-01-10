@@ -23,15 +23,17 @@
         @Html.LabelFor(m => m.InvoiceReference)
         @Html.TextBoxFor(m => m.InvoiceReference)
 
+        @Html.LabelFor(m=> m.Amount)
+        @Html.TextBoxFor(m =>m.Amount)
+
         @Html.LabelFor(m => m.creditType)
-       @* @Html.TextBoxFor(m => m.creditType)*@
-        @Html.DropDownListFor(m => m.creditType, Model.cardTypes) @*Start here, how to populate dropdown?*@
+        @Html.DropDownListFor(m => m.creditType, new SelectList(Model.cardTypes, "Value", "Text", Model.creditType))
 
         @Html.LabelFor(m => m.CreditCardNo)
         @Html.TextBoxFor(m => m.CreditCardNo)
 
         @Html.LabelFor(m => m.expireMonth)
-        @Html.TextBoxFor(m => m.expireMonth)
+        @Html.DropDownListFor(m => m.expireMonth, new SelectList(Model.monthsOfYear, "Value", "Text", Model.expireMonth))
 
         @Html.LabelFor(m => m.expireYear)
         @Html.TextBoxFor(m => m.expireYear)
