@@ -13,7 +13,7 @@ namespace gpPaymentServicesMvc.Models
         public IEnumerable<SelectListItem> cardTypes { get; set; }
         public IEnumerable<SelectListItem> monthsOfYear { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Please enter your Invoice Reference")]
         [Display(Name = "Invoice Reference")]
         public string InvoiceReference { get; set; }
 
@@ -24,12 +24,32 @@ namespace gpPaymentServicesMvc.Models
         public string PaymentStatus { get; set; }
         public string PaymentSuccessId { get; set; }
 
+        [Required]
+        [Display(Name = "Credit Card No")]
         public string CreditCardNo { get; set; }
+
+        [Required]
+        [Display(Name = "Last 3 digits of signature strip")]
         public int CVV2 { get; set; }
+
+        [Required]
+        [Display(Name="Expiry Month")]
         public int expireMonth { get; set; }
+
+        [Required]
+        [Display(Name = "Expiry Year")]
         public int expireYear { get; set; }
+
+        [Required]
+        [Display(Name = "First Name")]
         public string firstName { get; set; }
+
+        [Required]
+        [Display(Name="Last Name")]
         public string lastName { get; set; }
+
+        [Required]
+        [Display(Name = "Card Type")]
         public string creditType { get; set; }
 
         public PaypalModel()
