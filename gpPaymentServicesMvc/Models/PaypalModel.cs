@@ -18,6 +18,7 @@ namespace gpPaymentServicesMvc.Models
         public string InvoiceReference { get; set; }
 
         [Required]
+        [Range(0, double.MaxValue, ErrorMessage = "Please enter a value bigger than {1}")]
         [Display(Name = "Amount")]
         public decimal Amount { get; set; }
 

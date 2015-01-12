@@ -20,6 +20,7 @@
 @using (Html.BeginForm("Paypal", "Home"))
 {
     <fieldset>
+        @Html.ValidationSummary()
         @Html.LabelFor(m => m.InvoiceReference)
         @Html.TextBoxFor(m => m.InvoiceReference)
 
