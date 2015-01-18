@@ -17,15 +17,15 @@
 }
 <h3>We accept the following payment methods:</h3>
 <img src="~/Images/paymentmethods.gif" />
-@using (Html.BeginForm("Paypal", "Home"))
+@using (Html.BeginForm("Index", "Home"))
 {
     <fieldset>
         @Html.ValidationSummary()
         @Html.LabelFor(m => m.InvoiceReference)
-        @Html.TextBoxFor(m => m.InvoiceReference)
+        @Html.TextBoxFor(m => m.InvoiceReference, new { @autofocus = ""})
 
         @Html.LabelFor(m=> m.Amount)
-        @Html.TextBoxFor(m =>m.Amount)
+        @Html.EditorFor(m =>m.Amount)
 
         @Html.LabelFor(m => m.creditType)
         @Html.DropDownListFor(m => m.creditType, new SelectList(Model.cardTypes, "Value", "Text", Model.creditType))

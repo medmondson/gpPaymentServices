@@ -32,29 +32,11 @@ namespace gpPaymentServicesMvc.Controllers
             return View(model);
         }
 
-        [HttpGet]
-        public ActionResult Paypal()
-        {
-            ViewBag.Message = "Your app description page.";
-
-            //Set defaults
-            PaypalModel model = new PaypalModel
-            {
-                CreditCardNo = "4417119669820331",
-                creditType = "visa",
-                expireMonth = 11,
-                expireYear = 2018,
-                firstName = "Joe",
-                lastName = "Shopper",
-                CVV2 = 874
-            };
-
-            return View(model);
-        }
-
         [HttpPost]
-        public ActionResult Paypal(PaypalModel model)
+        public ActionResult Index(PaypalModel model)
         {
+            //TODO: Tidy all this up
+
             // Get a reference to the config
             var config = PayPal.Manager.ConfigManager.Instance.GetProperties();
 

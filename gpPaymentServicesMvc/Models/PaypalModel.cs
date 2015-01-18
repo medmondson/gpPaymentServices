@@ -18,8 +18,8 @@ namespace gpPaymentServicesMvc.Models
         public string InvoiceReference { get; set; }
 
         [Required]
-        [Range(0, double.MaxValue, ErrorMessage = "Please enter a value bigger than {1}")]
-        [Display(Name = "Amount")]
+        [Range(0.01, double.MaxValue, ErrorMessage = "Please enter the amount you'd like to pay")]
+        [Display(Name = "Amount (£)")]
         public decimal Amount { get; set; }
 
         public string PaymentStatus { get; set; }
@@ -56,7 +56,10 @@ namespace gpPaymentServicesMvc.Models
         public PaypalModel()
         {
             cardTypes = new List<SelectListItem> {  new SelectListItem { Value = "Mastercard", Text = "Mastercard" },
-                                                    new SelectListItem { Value = "Visa", Text = "Visa" } };
+                                                    new SelectListItem { Value = "Visa", Text = "Visa" },
+                                                    new SelectListItem {Value = "Visa Electron", Text = "Visa Electron"},
+                                                    new SelectListItem {Value = "Maestro", Text = "Maestro"}
+                                                };
 
             monthsOfYear = new List<SelectListItem> {
                 new SelectListItem{Value="1", Text="1"},
