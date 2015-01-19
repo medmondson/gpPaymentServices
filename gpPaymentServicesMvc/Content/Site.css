@@ -91,6 +91,23 @@ h5, h6 {
     }
 
 
+
+/*div.message.message-info div.message-inner {
+position: relative;
+}*/
+
+    div.message.message-info div.message-tip-left-top:before {
+top: 0;
+left: -9px;
+border-top: 9px solid #7ac0da;
+border-left: 9px solid transparent;
+}
+
+    div.message.message-info div.message-tip:before {
+content: "";
+position: absolute;
+}
+
 /* main layout
 ----------------------------------------------------------*/
 .content-wrapper {
