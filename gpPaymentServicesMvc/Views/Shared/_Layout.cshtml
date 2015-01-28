@@ -34,5 +34,9 @@
         @Scripts.Render("~/bundles/jquery")
         @Scripts.Render("~/bundles/jqueryval")
         @RenderSection("scripts", required: false)
+        @if (IsSectionDefined("MyOtherJavascript"))
+        {
+            @RenderSection("MyOtherJavascript");
+        }
     </body>
 </html>

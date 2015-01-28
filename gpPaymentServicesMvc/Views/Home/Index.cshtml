@@ -16,9 +16,22 @@
     </section>
 }
 
+@section MyOtherJavascript {
+    <script>
+
+        $(document).ready(function () {
+
+            $("#InvoiceReference").focusin(function(event){
+                $("#popUpClass").fadeIn();
+            });
+
+        });
+    </script>
+}
+
 <h3>We accept the following payment methods:</h3>
 
-<div class="message message-info" style="color: rgb(255, 255, 255); position: absolute; top: 388px; left: 520px; display: block; background-color: #7ac0da;">
+<div id="popUpClass" class="message message-info" style="color: rgb(255, 255, 255); position: absolute; top: 388px; left: 520px; display:none; background-color: #7ac0da;">
     <div class="message-inner message-tip message-tip-left-top">
         <div class="message-text">
             <p>Password must contain at least eight unique characters, including:</p>
@@ -36,7 +49,7 @@
     <fieldset>
         @Html.ValidationSummary()
         @Html.LabelFor(m => m.InvoiceReference)
-        @Html.TextBoxFor(m => m.InvoiceReference, new { @autofocus = ""})
+        @Html.TextBoxFor(m => m.InvoiceReference)
 
         @Html.LabelFor(m=> m.Amount)
         @Html.EditorFor(m =>m.Amount)
