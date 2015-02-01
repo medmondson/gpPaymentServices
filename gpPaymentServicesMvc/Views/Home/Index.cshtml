@@ -25,6 +25,10 @@
                 $("#popUpClass").fadeIn();
             });
 
+            $("#InvoiceReference").focusout(function (event) {
+                $("#popUpClass").fadeOut();
+            });
+
         });
     </script>
 }
@@ -34,8 +38,7 @@
 <div id="popUpClass" class="message message-info" style="color: rgb(255, 255, 255); position: absolute; top: 388px; left: 520px; display:none; background-color: #7ac0da;">
     <div class="message-inner message-tip message-tip-left-top">
         <div class="message-text">
-            <p>Password must contain at least eight unique characters, including:</p>
-            <ul> <li> uppercase letters </li> <li> lowercase letters </li> <li> numbers or symbols </li> </ul>
+            <p>You'll find this at the top of your invoice</p>
         </div>
     </div>
 </div>
@@ -47,13 +50,12 @@
     @*Use an <aside></aside> for form filling features*@
     
     <fieldset>
-        @Html.ValidationSummary()
+        
         @Html.LabelFor(m => m.InvoiceReference)
         @Html.TextBoxFor(m => m.InvoiceReference)
 
         @Html.LabelFor(m=> m.Amount)
         @Html.EditorFor(m =>m.Amount)
-        <aside>You can find this at the top of your bill</aside>
 
         @Html.LabelFor(m => m.creditType)
         @Html.DropDownListFor(m => m.creditType, new SelectList(Model.cardTypes, "Value", "Text", Model.creditType))
@@ -75,7 +77,10 @@
 
         @Html.LabelFor(m => m.lastName)
         @Html.TextBoxFor(m => m.lastName)
-        <input type="submit" value="Pay" />
+
+        @Html.ValidationSummary()
+
+        <input type="submit" value="Pay" style="display:block" />
     </fieldset>
 }
 

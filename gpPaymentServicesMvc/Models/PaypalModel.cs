@@ -24,6 +24,7 @@ namespace gpPaymentServicesMvc.Models
 
         public string PaymentStatus { get; set; }
         public string PaymentSuccessId { get; set; }
+        public string ExceptionMesssge { get; set; }
 
         [Required]
         [Display(Name = "Credit Card No")]

@@ -1,0 +1,25 @@
+﻿@model gpPaymentServicesMvc.Models.PaypalModel
+
+@{
+    ViewBag.Title = "ThankYou";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if(String.IsNullOrEmpty(Model.ExceptionMesssge))
+{ 
+
+<div>
+<h2>Thank you for your payment</h2> <img src="~/Images/success-tick.png" />
+
+    Your payment has been successfully received.  Please note payment ID <b>@Model.PaymentSuccessId</b> for future reference.
+</div>
+}
+else
+{
+    <div>
+<h2>Unfortunatly there has been a problem</h2>
+
+    We have been unable to process your payment.  The payment provider gave us the following message: <b>@Model.ExceptionMesssge</b>
+</div>
+}
+

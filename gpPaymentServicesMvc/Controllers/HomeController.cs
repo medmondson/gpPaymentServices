@@ -32,6 +32,16 @@ namespace gpPaymentServicesMvc.Controllers
             return View(model);
         }
 
+        public ActionResult ThankYou()
+        {
+            PaypalModel model = new PaypalModel
+            {
+                PaymentSuccessId = "AG5H4B"
+            };
+
+            return View(model);
+        }
+
         [HttpPost]
         public ActionResult Index(PaypalModel model)
         {
@@ -137,9 +147,12 @@ namespace gpPaymentServicesMvc.Controllers
 
                 createdPayment = pymnt.Create(accessToken);
             }
-            catch (Exception e)
+              
+            catch(PayPal.Exception.PayPalException e)
             {
-
+                //return view here with details
+                model.ExceptionMesssge = e.Message;
+                return View("ThankYou", model);
             }
 
             var state = createdPayment.state;
@@ -147,15 +160,10 @@ namespace gpPaymentServicesMvc.Controllers
 
             model.PaymentStatus = state;
             model.PaymentSuccessId = id;
-
-            return View(model);
+  
+            return View("ThankYou",model);
+            
         }
 
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
     }
 }
