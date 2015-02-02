@@ -91,11 +91,6 @@ h5, h6 {
     }
 
 
-
-/*div.message.message-info div.message-inner {
-position: relative;
-}*/
-
     div.message.message-info div.message-tip-left-top:before {
 top: 0;
 left: -9px;
@@ -107,6 +102,7 @@ border-left: 9px solid transparent;
 content: "";
 position: absolute;
 }
+
 
 /* main layout
 ----------------------------------------------------------*/

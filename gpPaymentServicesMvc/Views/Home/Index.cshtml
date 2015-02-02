@@ -21,11 +21,11 @@
 
         $(document).ready(function () {
 
-            $("#InvoiceReference").focusin(function(event){
+            $("#InvoiceReference").focusin(function(){
                 $("#popUpClass").fadeIn();
             });
 
-            $("#InvoiceReference").focusout(function (event) {
+            $("#InvoiceReference").focusout(function () {
                 $("#popUpClass").fadeOut();
             });
 
@@ -35,24 +35,25 @@
 
 <h3>We accept the following payment methods:</h3>
 
-<div id="popUpClass" class="message message-info" style="color: rgb(255, 255, 255); position: absolute; top: 388px; left: 520px; display:none; background-color: #7ac0da;">
-    <div class="message-inner message-tip message-tip-left-top">
-        <div class="message-text">
-            <p>You'll find this at the top of your invoice</p>
-        </div>
-    </div>
-</div>
-
-
 <img src="~/Images/paymentmethods.gif" />
 @using (Html.BeginForm("Index", "Home"))
 {
     @*Use an <aside></aside> for form filling features*@
     
     <fieldset>
-        
-        @Html.LabelFor(m => m.InvoiceReference)
-        @Html.TextBoxFor(m => m.InvoiceReference)
+        <div id="InvReference">
+            @Html.LabelFor(m => m.InvoiceReference)
+            @Html.TextBoxFor(m => m.InvoiceReference)
+            <span id="popUpClass" class="message message-info" style="color: rgb(255, 255, 255); display: none; position: absolute; background-color: #7ac0da; margin-left: 25px;">
+                <div class="message-inner message-tip message-tip-left-top">
+                    <div class="message-text">
+                        <p>
+                            <img src="~/Images/ExampleInvoice.png" />
+                        </p>
+                    </div>
+                </div>
+            </span>
+        </div>
 
         @Html.LabelFor(m=> m.Amount)
         @Html.EditorFor(m =>m.Amount)

@@ -255,6 +255,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
+    <Content Include="Images\ExampleInvoice.png" />
     <Content Include="Images\gazprom-logo.png" />
     <Content Include="Images\paymentmethods.gif" />
     <Content Include="Images\success-tick.png">
