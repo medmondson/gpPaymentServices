@@ -57,7 +57,7 @@ namespace gpPaymentServicesMvc.Models
         public PaypalModel()
         {
             cardTypes = new List<SelectListItem> {  new SelectListItem { Value = "Mastercard", Text = "Mastercard" },
-                                                    new SelectListItem { Value = "Visa", Text = "Visa" },
+                                                    new SelectListItem { Value = "visa", Text = "Visa" },
                                                     new SelectListItem {Value = "Visa Electron", Text = "Visa Electron"},
                                                     new SelectListItem {Value = "Maestro", Text = "Maestro"}
                                                 };

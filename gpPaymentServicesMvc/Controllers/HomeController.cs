@@ -62,8 +62,6 @@ namespace gpPaymentServicesMvc.Controllers
             // Initialize the apiContext's configuration with the default configuration for this application.
             apiContext.Config = PayPal.Manager.ConfigManager.Instance.GetProperties();
 
-            var version = apiContext.SdkVersion;
-
             // ###Address
             // Base Address object used as shipping or billing
             // address in a payment.
@@ -80,12 +78,12 @@ namespace gpPaymentServicesMvc.Controllers
             CreditCard crdtCard = new CreditCard();
             crdtCard.billing_address = billingAddress;
             crdtCard.cvv2 = 874;
-            crdtCard.expire_month = 11;
-            crdtCard.expire_year = 2018;
-            crdtCard.first_name = "Joe";
-            crdtCard.last_name = "Shopper";
-            crdtCard.number = "4417119669820331";
-            crdtCard.type = "visa";
+            crdtCard.expire_month = model.expireMonth;
+            crdtCard.expire_year = model.expireYear;
+            crdtCard.first_name = model.firstName;
+            crdtCard.last_name = model.lastName;
+            crdtCard.number = model.CreditCardNo;
+            crdtCard.type = model.creditType;
 
             // ###Amount
             // Let's you specify a payment amount.
