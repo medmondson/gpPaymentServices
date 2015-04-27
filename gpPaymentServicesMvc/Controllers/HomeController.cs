@@ -20,12 +20,12 @@ namespace gpPaymentServicesMvc.Controllers
             //Set defaults
             PaypalModel model = new PaypalModel
             {
-                CreditCardNo = "4417119669820331",
+                CreditCardNo = "4137351638820154",
                 creditType = "visa",
                 expireMonth = 11,
-                expireYear = 2018,
-                firstName = "Joe",
-                lastName = "Shopper",
+                expireYear = 2019,
+                firstName = "Dean",
+                lastName = "Branton",
                 CVV2 = 874
             };
 
